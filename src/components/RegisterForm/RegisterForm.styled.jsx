@@ -54,11 +54,3 @@ export const Button = styled.button`
     background-color: rgb(237, 112, 66);
   }
 `;
-
-export const Header = styled.h1`
-  text-align: center;
-  margin-bottom: 21px;
-  font-family: 'Courier New', Courier, monospace;
-  line-height: normal;
-  color: coral;
-`;

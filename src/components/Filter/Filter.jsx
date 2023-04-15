@@ -2,7 +2,7 @@ import { Label, Input, Container, Icon } from './Filter.styled';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 import { useDispatch } from 'react-redux';
-import { setFilterValue } from 'redux/filterSlice';
+import { setFilterValue } from 'redux/filter/filterSlice';
 
 export const Filter = () => {
   const dispatch = useDispatch();

@@ -1,30 +1,38 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { selectContacts, selectIsLoading } from 'redux/selectors';
-import { fetchContacts } from 'redux/operations';
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-import { GlobalStyles } from '../App/GlobalStyles';
-import { ContactForm } from '../ContactForm/ContactForm';
-import { Filter } from '../Filter/Filter';
-import { ContactList } from '../ContactList/ContactList';
-import { Container, Header, SubHeader } from './App.styled';
-import { Loader } from 'components/Loader/Loader';
+import { GlobalStyles } from './GlobalStyles';
+import { Layout } from 'components/Layout/Layout';
+import { useDispatch } from 'react-redux';
+import { authRefreshUser } from 'redux/auth/operations';
 
+const HomePage = lazy(() => import('../../Pages/Home'));
+const ContactsPage = lazy(() => import('../../Pages/Contacts'));
+const LoginPage = lazy(() => import('../../Pages/Login'));
+const RegisterPage = lazy(() => import('../../Pages/Register'));
+
+// userqq@m.com
 export const App = () => {
-  const contacts = useSelector(selectContacts);
-  const loading = useSelector(selectIsLoading);
-
   const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+    dispatch(authRefreshUser());
+  });
 
   return (
-    <Container>
-      <GlobalStyles />
-      <Header>Phonebook</Header>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<h1>not found</h1>} />
+        </Route>
+      </Routes>
 
+      <GlobalStyles />
+
+      {/* <Header>Phonebook</Header>
       <ContactForm />
       {loading ? (
         <Loader />
@@ -40,7 +48,7 @@ export const App = () => {
             <SubHeader>You have not any contacts</SubHeader>
           )}
         </>
-      )}
-    </Container>
+      )} */}
+    </>
   );
 };

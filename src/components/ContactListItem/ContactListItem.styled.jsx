@@ -36,3 +36,11 @@ export const ContactName = styled.span`
   width: 220px;
   word-wrap: break-word;
 `;
+
+export const SubHeader = styled.h2`
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: normal;
+  color: coral;
+`;
