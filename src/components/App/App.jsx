@@ -24,6 +24,7 @@ export const App = () => {
     <Container>
       <GlobalStyles />
       <Header>Phonebook</Header>
+
       <ContactForm />
       {loading ? (
         <Loader />
@@ -36,7 +37,7 @@ export const App = () => {
               <ContactList />
             </>
           ) : (
-            <SubHeader>You   have not any contacts</SubHeader>
+            <SubHeader>You have not any contacts</SubHeader>
           )}
         </>
       )}
