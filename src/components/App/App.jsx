@@ -36,7 +36,7 @@ export const App = () => {
               <ContactList />
             </>
           ) : (
-            <SubHeader>You have not any contacts</SubHeader>
+            <SubHeader>You   have not any contacts</SubHeader>
           )}
         </>
       )}
