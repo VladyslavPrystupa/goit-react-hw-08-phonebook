@@ -19,7 +19,7 @@ export const LoginForm = () => {
 
   return (
     <>
-      <Header>Login</Header>
+      <Header>Log In</Header>
       <Form onSubmit={handleSubmit}>
         <Label>
           Email
