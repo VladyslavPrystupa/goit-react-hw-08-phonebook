@@ -1,6 +1,7 @@
 import { Form, Label, Input, Button } from './RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { authUserRegister } from 'redux/auth/operations';
+import { Header } from 'components/ContactForm/ContactForm.styled';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -18,31 +19,34 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      REGISTER
-      <Label>
-        Name
-        <Input
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          required
-        />
-      </Label>
-      <Label>
-        Email
-        <Input
-          type="email"
-          name="email"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-          required
-        />
-      </Label>
-      <Label>
-        Password
-        <Input type="password" name="password" required />
-      </Label>
-      <Button type="submit">Register</Button>
-    </Form>
+    <>
+      <Header>Sign Up</Header>
+
+      <Form onSubmit={handleSubmit}>
+        <Label>
+          Name
+          <Input
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            required
+          />
+        </Label>
+        <Label>
+          Email
+          <Input
+            type="email"
+            name="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            required
+          />
+        </Label>
+        <Label>
+          Password
+          <Input type="password" name="password" required />
+        </Label>
+        <Button type="submit">Register</Button>
+      </Form>
+    </>
   );
 };

@@ -62,3 +62,11 @@ export const Header = styled.h1`
   line-height: normal;
   color: coral;
 `;
+
+export const SubHeader = styled.h2`
+  text-align: center;
+  margin: 10px 0;
+  font-family: monospace;
+  line-height: normal;
+  color: coral;
+`;

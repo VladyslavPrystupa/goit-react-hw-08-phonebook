@@ -1,12 +1,19 @@
-import { Form, Label, Input, Button, Header } from './ContactForm.styled';
+import {
+  Form,
+  Label,
+  Input,
+  Button,
+  Header,
+  SubHeader,
+} from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations';
-import { selectContacts, getIsLoggedIn } from 'redux/selectors';
+import { getContacts, getIsLoggedIn } from 'redux/selectors';
 import Notiflix from 'notiflix';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
+  const contacts = useSelector(getContacts);
   const isLoggedIn = useSelector(getIsLoggedIn);
 
   const handleSubmit = evt => {
@@ -56,7 +63,7 @@ export const ContactForm = () => {
         {isLoggedIn ? (
           <Button type="submit">Add contact</Button>
         ) : (
-          <p>sign up or log in to add contacts</p>
+          <SubHeader>Sign up or log in to add contacts!</SubHeader>
         )}
       </Form>
     </>

@@ -7,12 +7,12 @@ import {
 import { AiOutlineUser } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
-import { selectContacts, selectFilter } from 'redux/selectors';
+import { getContacts, selectFilter } from 'redux/selectors';
 
 export const ContactListItem = () => {
-  const contacts = useSelector(selectContacts);
-  const filterValue = useSelector(selectFilter);
   const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
+  const filterValue = useSelector(selectFilter);
 
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLocaleLowerCase().includes(filterValue)

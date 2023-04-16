@@ -30,9 +30,18 @@ ol {
   padding: 0;
  list-style: none;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
+
 img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.active{
+  color: coral;
 }
 `;
